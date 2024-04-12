@@ -1,0 +1,1 @@
+Frau: Das Wetter ist toll heute. Der Wind weht einem so schön sanft durchs Haar.
