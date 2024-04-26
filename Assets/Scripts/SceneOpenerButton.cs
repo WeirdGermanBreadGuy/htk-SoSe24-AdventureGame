@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneOpenerButton : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int buildIndex;
+    
+    private void Awake()
     {
-        
+        GetComponent<Button>().onClick.AddListener(LoadScene);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void LoadScene()
     {
-        
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(buildIndex);
     }
 }
