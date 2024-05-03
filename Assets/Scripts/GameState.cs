@@ -1,33 +1,122 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-    public class GameState : MonoBehaviour
+
+public class GameState : MonoBehaviour
+{
+    private readonly Dictionary<ItemType, uint> _items = new();
+    private readonly List<QuestState> _questStates = new();
+
+    public static void AddItem(ItemType type, uint amount)
     {
-        private Dictionary<ItemType, uint> items = new();
-
-        public static void AddItem(ItemType type, uint amount)
+        var instance = FindObjectOfType<GameState>();
+        if (!instance._items.TryAdd(type, amount))
         {
-            var instance = FindObjectOfType<GameState>();
+            instance._items[type] += amount;
+        }
+        
+        //QuestSystem.UpdateQuests(type);
+    }
 
-            if (!instance.items.TryAdd(type, amount))
+    public static bool TryRemoveItem(ItemType type, uint amount)
+    {
+        var instance = FindObjectOfType<GameState>();
+        if (instance._items.TryGetValue(type, out var ownedAmount))
+        {
+            if (ownedAmount < amount)
             {
-                instance.items[type] += amount;
+                return false;
             }
+
+            instance._items[type] -= amount;
+            return true;
         }
 
-        public static bool TryRemoveItem(ItemType type, uint amount)
-        {
-            var instance = FindObjectOfType<GameState>();
-            if ( instance.items.TryGetValue(type, out var ownedAmount))
-            {
-                if (ownedAmount < amount)
-                {
-                    return false; // pech gehabt, nicht genug von type
-                }
+        return false;
+    }
 
-                instance.items[type] -= amount; // Transaktion
-                return true; // Cool
-            }
-            
-            return false; // Meh
+    public static bool HasEnoughItems(ItemType type, uint amount)
+    {
+        var instance = FindObjectOfType<GameState>();
+        if (instance._items.TryGetValue(type, out var ownedAmount))
+        {
+            return ownedAmount >= amount;
+        }
+
+        return false;
+    }
+
+    public static IReadOnlyDictionary<ItemType, uint> GetAllItems()
+    {
+        var instance = FindObjectOfType<GameState>();
+        return instance._items;
+    }
+
+    public static void StartQuest(IQuest quest)
+    {
+        var instance = FindObjectOfType<GameState>();
+        
+        if (instance._questStates.Any(q => q.Quest.GetId() == quest.GetId()))
+        {
+            Debug.LogWarning($"Quest{quest.GetId()} already started - not starting it again");
+            return;
+        }
+        
+        var state = new QuestState()
+        {
+            Quest = quest,
+            Status = QuestStatus.Started,
+        };
+        instance._questStates.Add(state);
+    }
+
+    public static void RemoveQuest(string questId)
+    {
+        var instance = FindObjectOfType<GameState>();
+        var match = instance._questStates.Find(q => q.Quest.GetId() == questId);
+        instance._questStates.Remove(match);
+    }
+
+    public static void MarkCompletable(IQuest quest)
+    {
+        var instance = FindObjectOfType<GameState>();
+        var match = instance._questStates.Find(q => q.Quest.GetId() == quest.GetId());
+        match.Status = QuestStatus.Completable;
+        var index = instance._questStates.FindIndex(q => q.Quest.GetId() == quest.GetId());
+        if (index >= 0 && index < instance._questStates.Count)
+        {
+            instance._questStates[index] = match;
         }
     }
+    
+    public static IReadOnlyList<QuestState> GetCompletableQuests()
+    {
+        var instance = FindObjectOfType<GameState>();
+        return instance._questStates.Where(x => x.Status == QuestStatus.Completable).ToList();
+    }
+
+    public static IReadOnlyList<QuestState> GetCompletedQuests()
+    {
+        var instance = FindObjectOfType<GameState>();
+        return instance._questStates.Where(x => x.Status == QuestStatus.Completed).ToList();
+    }
+
+    public static IReadOnlyList<QuestState> GetActiveQuests()
+    {
+        var instance = FindObjectOfType<GameState>();
+        return instance._questStates;
+    }
+}
+
+public struct QuestState
+{
+    public IQuest Quest;
+    public QuestStatus Status;
+};
+
+public enum QuestStatus
+{
+    Started,
+    Completable,
+    Completed
+}
