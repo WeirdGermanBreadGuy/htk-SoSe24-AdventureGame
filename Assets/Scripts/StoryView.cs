@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using Ink.Runtime;
 using TMPro;
 using UnityEngine;
@@ -139,8 +140,15 @@ private void DestroyOldChoices()
         if (index == 0)
         {
             choice.Select();
+            choice.navigation = new Navigation { mode = Navigation.Mode.Vertical, selectOnDown = choice };
         }
 
+        choice.transform
+            .DOScale(1f, 0.5f)
+            .SetEase(Ease.OutBack)
+            .From(0f)
+            .SetDelay(index * 0.2f);
+        
         var choiceText = choice.GetComponentInChildren<TextMeshProUGUI>();
         choiceText.text = text;
 

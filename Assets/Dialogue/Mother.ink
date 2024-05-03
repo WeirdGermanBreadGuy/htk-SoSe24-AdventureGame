@@ -7,7 +7,7 @@ Du kleines- Aargh, Raha! Wenn ich dich in die Finger kriege!
         -> Chaos
 * Wer hat denn den Krug umgestoßen?
     Erinnerst du dich noch an dieses Vieh mit den großen Ohren, was sich Essen stibitzten wollte? Das war wieder hier.
-      -> Chaos
+        -> Chaos
 
 == Chaos==
 Ich werde das Chaos hier am besten aufräumen.
