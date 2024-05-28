@@ -1,5 +1,4 @@
 #speaker Mama
-=== Intro ===
 #anim Matthew stands up and leaves
 Du kleines- Aargh, Raha! Wenn ich dich in die Finger kriege!
 * Was ist denn hier passiert?
