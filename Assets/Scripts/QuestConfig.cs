@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class QuestConfig : ScriptableObject
+public class QuestsConfig : ScriptableObject
 
 {
   public CollectionQuest[] quests;
