@@ -795,6 +795,11 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6024726847092351118, guid: 17c39e3e07dcbc54998810ecc69cad62,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6653143684537801563, guid: 17c39e3e07dcbc54998810ecc69cad62,
         type: 3}
       propertyPath: m_Pivot.x
