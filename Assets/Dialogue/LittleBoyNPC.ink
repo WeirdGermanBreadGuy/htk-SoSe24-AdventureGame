@@ -1,1 +1,3 @@
+#speaker Junge
 Junge: Dieses lustige Wiesel war wieder hier. Ich will am liebsten Fangen mit ihm spielen! Aber das gibt Ärger mit Mama...
+-> DONE
