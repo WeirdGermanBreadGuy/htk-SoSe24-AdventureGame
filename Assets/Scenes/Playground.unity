@@ -20947,8 +20947,9 @@ GameObject:
   - component: {fileID: 416648140}
   - component: {fileID: 416648139}
   - component: {fileID: 416648142}
+  - component: {fileID: 416648143}
   m_Layer: 0
-  m_Name: River
+  m_Name: RiverSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21062,6 +21063,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 11.38, y: 1.56, z: 10.45}
   m_Center: {x: -0.1117476, y: 1.110223e-16, z: 0.069914214}
+--- !u!114 &416648143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416648137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1b79b26c71e9d84bbd0d22c3d39e00e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _requiredItem: {fileID: 11400000, guid: 1cbc14dd82b902546a99c60ff4e7d16b, type: 2}
+  _shouldConsume: 1
+  requiredAmount: 1
+  type: {fileID: 11400000, guid: 5ba8f41b43e9a0b49aec260724fb5950, type: 2}
+  amount: 1
 --- !u!1 &417028249 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3ea2dab3a0009f145aabb4fd0efdf18b,
@@ -22387,8 +22405,8 @@ Transform:
   m_GameObject: {fileID: 441941969}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.4399986, y: 0, z: 38.08}
-  m_LocalScale: {x: 0.39436, y: 1, z: 2.1916}
+  m_LocalPosition: {x: -6.4399986, y: 0, z: 40.68}
+  m_LocalScale: {x: 0.39436, y: 1, z: 3.1521785}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2023433998}
@@ -36082,6 +36100,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: 1cbc14dd82b902546a99c60ff4e7d16b, type: 2}
   amount: 1
+--- !u!135 &745178194
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745178188}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.013543089
+  m_Center: {x: 0.000000029802322, y: 0, z: 0.0035430905}
 --- !u!1001 &745413556
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62528,6 +62567,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 745178193}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2a5e6f71e69a0304089978984ed18d15,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 745178194}
   m_SourcePrefab: {fileID: 100100000, guid: 2a5e6f71e69a0304089978984ed18d15, type: 3}
 --- !u!1001 &1318869420
 PrefabInstance:
