@@ -27,6 +27,7 @@ Alter Mann: Nun, meine Wasserkrüge sind jetzt alle leer aber ich brauche Wasser
 -> Help
 
 == Help ==
+#addQuest FillVase
 * Natürlich!
 Alter Mann: Ahh, vielen Dank mein Junge. Nehm dir einfach einen der Krüge die dort stehen und bring ihn mir dann mit Wasser voll zurück.
 -> END

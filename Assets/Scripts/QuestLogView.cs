@@ -18,6 +18,11 @@ public class QuestLogView : MonoBehaviour
         var activeQuests = GameState.GetActiveQuests();
         foreach (var quest in activeQuests)
         {
+            if (quest.Status == GameState.QuestStatus.Completed)
+            {
+                continue;
+            }
+            
             var questView = Instantiate(questViewPrefab, questHolder);
             questView.Set(quest.Quest);
         }

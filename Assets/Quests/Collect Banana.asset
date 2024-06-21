@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f24c33473a3c18d4b83bb22889656ca1, type: 3}
   m_Name: Collect Banana
   m_EditorClassIdentifier: 
-  displayName: 
-  type: {fileID: 0}
-  amount: 1
+  displayName: CollectBanana
+  requirements: []
