@@ -1,13 +1,23 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class LocationInteractor : MonoBehaviour
 {
     private IInteractable currentInteractable;
+    private PlayerInput playerInput;
+
+    private void Awake()
+    {
+        playerInput = FindObjectOfType<PlayerInput>();
+    }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (playerInput.actions["Interact"].WasPerformedThisFrame())
+        {
             currentInteractable?.Interact();
+        }
     }
 
     private void OnTriggerEnter(Collider other)

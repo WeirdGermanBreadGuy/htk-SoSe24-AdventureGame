@@ -229,6 +229,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closeButton: {fileID: 821558147859712502}
+  pauseMenu: {fileID: 8507322382377565763, guid: 787bafebfc001f8409a616bfd02c4564,
+    type: 3}
 --- !u!1 &6277880478376225852
 GameObject:
   m_ObjectHideFlags: 0

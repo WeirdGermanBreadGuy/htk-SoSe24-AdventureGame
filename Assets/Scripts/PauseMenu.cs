@@ -1,45 +1,47 @@
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject pausePanel;
     [SerializeField] private Button continueButton;
+    [SerializeField] private Button optionsButton;
+    [SerializeField] private OptionsMenu optionsMenuPrefab;
+    
     private void Awake()
     {
-        pausePanel.SetActive(false);
-        continueButton.onClick.AddListener(()  => SetPausedStatus(false));
+        Pause();
+        continueButton.onClick.AddListener(Continue);
+        optionsButton.onClick.AddListener(OpenOptions);
+        continueButton.Select();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetButtonDown("Menu"))
         {
-            var wasPreviouslyPaused = pausePanel.activeSelf;
-            SetPausedStatus(!wasPreviouslyPaused);
-        }
-
-
-        if (pausePanel.activeInHierarchy)
-        {
-            if (EventSystem.current.currentSelectedGameObject == null)
-            {
-                continueButton.Select();
-            }
+            Continue();
         }
     }
 
-    private void SetPausedStatus(bool isPaused)
+    private void Pause()
     {
-        pausePanel.SetActive(isPaused);
-        Time.timeScale = isPaused ? 0 : 1;
-        Cursor.visible = isPaused;
-        Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
+        Time.timeScale = 0;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
 
-        if (isPaused)
-        {
-            continueButton.Select();
-        }
+    private void Continue()
+    {
+        Time.timeScale = 1;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Destroy(gameObject);
+    }
+    
+    private void OpenOptions()
+    {
+        UiService.Open(optionsMenuPrefab.gameObject);
+        Destroy(gameObject);
     }
 }

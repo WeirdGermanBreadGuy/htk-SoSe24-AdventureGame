@@ -1,15 +1,11 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class OptionsMenu : MonoBehaviour
 {
     [SerializeField] private Button closeButton;
-
+    [SerializeField] private PauseMenu pauseMenu;
     private void Awake()
     {
         closeButton.onClick.AddListener(Close);
@@ -18,7 +14,7 @@ public class OptionsMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetButtonDown("Menu"))
         {
             Close();
         }
@@ -26,6 +22,10 @@ public class OptionsMenu : MonoBehaviour
 
     private void Close()
     {
+        if (SceneManager.GetActiveScene().buildIndex > 0)
+        {
+            UiService.Open(pauseMenu.gameObject);
+        }
         Destroy(gameObject);
     }
 }
