@@ -3,15 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
-using Ink.Parsed;
+using Ink.Runtime;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using Choice = Ink.Runtime.Choice;
-using Story = Ink.Runtime.Story;
 
 public class StoryView : MonoBehaviour
 {
@@ -19,9 +16,8 @@ public class StoryView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI storyText;
     [SerializeField] private TextMeshProUGUI speakerName;
     [SerializeField] private Button buttonPrefab;
-    [SerializeField] private QuestsConfig questConfig;
-    [SerializeField] private Image speakerImage;
-    
+    [SerializeField] private GameObject normalHudGroup;
+
     [SerializeField] private List<SpeakerConfig> speakerConfigs;
 
     private UnityAction _onFinished;
@@ -34,13 +30,15 @@ public class StoryView : MonoBehaviour
     }
 
     private Story story;
-    private List<IQuest>_quests;
-        
+    private List<IQuest> _quests;
+    private PlayerInput _playerInput;
+
     private void Awake()
     {
         DestroyOldChoices();
         gameObject.SetActive(false);
-
+        _playerInput = FindObjectOfType<PlayerInput>();
+        
         CollectionQuest[] collectionQuests = Resources.LoadAll<CollectionQuest>("Quests");
         _quests = new List<IQuest>();
         foreach (var collectionQuest in collectionQuests)
@@ -49,9 +47,11 @@ public class StoryView : MonoBehaviour
         }
     }
 
-    public void StartStory(TextAsset textAsset)
+    public void StartStory(TextAsset textAsset, UnityAction onFinished)
     {
-        FindObjectOfType<PlayerInput>().enabled = false;
+        _onFinished = onFinished;
+        normalHudGroup.SetActive(false);
+        _playerInput.currentActionMap = _playerInput.actions.FindActionMap("UI");
         gameObject.SetActive(true);
         story = new Story(textAsset.text);
 
@@ -60,18 +60,41 @@ public class StoryView : MonoBehaviour
 
         foreach (var quest in GameState.GetCompletableQuests())
         {
-            story.variablesState["finished_"+quest.Quest.GetId().ToLower()] = true;
+            var varName = "completable_" + quest.Quest.GetId().ToLower();
+            if (story.variablesState.Contains(varName))
+            {
+                story.variablesState[varName] = true;
+            }
         }
-        
+
+        foreach (var quest in GameState.GetCompletedQuests())
+        {
+            var varName = "completed_" + quest.Quest.GetId().ToLower();
+            if (story.variablesState.Contains(varName))
+            {
+                story.variablesState[varName] = true;
+            }
+        }
+
+        foreach (var quest in GameState.GetActiveQuests())
+        {
+            var varName = "active_" + quest.Quest.GetId().ToLower();
+            if (story.variablesState.Contains(varName))
+            {
+                story.variablesState[varName] = true;
+            }
+        }
+
         ShowStory();
     }
-    
+
     private void CloseStory()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         gameObject.SetActive(false);
-        FindObjectOfType<PlayerInput>().enabled = true;
+        normalHudGroup.SetActive(true);
+        _playerInput.currentActionMap = _playerInput.actions.FindActionMap("Player");
         _onFinished?.Invoke();
     }
 
@@ -97,7 +120,7 @@ public class StoryView : MonoBehaviour
                 Choice choice = story.currentChoices[i];
                 Button button = CreateChoiceView(choice.text.Trim(), i);
                 // Tell the button what to do when we press it
-                button.onClick.AddListener( () => OnClickChoiceButton(choice));
+                button.onClick.AddListener(() => OnClickChoiceButton(choice));
             }
         }
         else
@@ -131,7 +154,7 @@ public class StoryView : MonoBehaviour
                 FindObjectOfType<QuestLogView>(true).ShowActiveQuests();
             }
 
-            if (currentTag.Contains("removeQuest"))
+            if (currentTag.Contains("completeQuest"))
             {
                 var questName = currentTag.Split(' ')[1];
                 GameState.CompleteQuest(questName);
@@ -150,7 +173,6 @@ public class StoryView : MonoBehaviour
     {
         var speaker = story.globalTags.FirstOrDefault(t => t.Contains("speaker"))?.Split(' ')[1];
         speakerName.text = speaker;
-        speakerImage.sprite = GetSpeakerImage(speaker);
         StartCoroutine(ShowTextLetterByLetter(text));
     }
 
@@ -161,18 +183,14 @@ public class StoryView : MonoBehaviour
         for (int i = 0; i <= text.Length; i++)
         {
             storyText.maxVisibleCharacters = i;
-            if (Keyboard.current.spaceKey.wasPressedThisFrame) // TODO: support joysticks also
+            if (_playerInput.actions["Skip"].WasPressedThisFrame())
             {
                 storyText.maxVisibleCharacters = text.Length;
                 yield break;
             }
-            yield return new WaitForSeconds(0.02f); // wir könnten auch 1 sekunde warten, das wäre sehr langsam
+
+            yield return new WaitForSeconds(0.015f); // wir könnten auch 1 sekunde warten, das wäre sehr langsam
         }
-    }
-    
-    private Sprite GetSpeakerImage(string speaker)
-    {
-        return speakerConfigs.FirstOrDefault(s => s.name == speaker)?.sprite;
     }
 
     private void DestroyOldChoices()
@@ -182,7 +200,7 @@ public class StoryView : MonoBehaviour
             Destroy(child.gameObject);
         }
     }
-    
+
     private Button CreateChoiceView(string text, int index)
     {
         var choice = Instantiate(buttonPrefab, choiceHolder.transform, false);
@@ -190,6 +208,7 @@ public class StoryView : MonoBehaviour
         {
             choice.Select();
         }
+
         choice.transform.DOScale(1f, 0.5f).SetEase(Ease.OutBounce).From(0f).SetDelay(index * 0.2f);
 
         var choiceText = choice.GetComponentInChildren<TextMeshProUGUI>();
