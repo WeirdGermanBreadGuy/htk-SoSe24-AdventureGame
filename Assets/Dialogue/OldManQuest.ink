@@ -1,33 +1,62 @@
 #speaker AlterMann
+VAR completable_FillVase = false
+VAR completed_FillVase = false
+VAR active_FillVase = false
+VAR completable_AlterMannTalk = false
+VAR completed_AlterMannTalk = false
+VAR active_AlterMannTalk = false
 
-Alter Mann: Guten Morgen Matthew. Hat dich der Lärm also geweckt mein Junge, hm?
+Und bist du schon fertig?
+* {completable_FillVase} -> foundVase 
+* {not completed_AlterMannTalk} -> choices
 
-* Wurdest du  auch durch den Krach geweckt?
+== choices ==
+#addQuest AlterMannTalk
+Hey Matthew, du siehst so nachdenklich aus.
+
+* Ich suche grade Raha, hast du sie gesehen?
 -> What
-* Hast du gesehen wo dieses Tier hin ist?
+* Nicht wirklich, Mutter hat gemeckert wegen Raha.
 -> Where
 
 == What ==
-Alter Mann: Nein Nein. Ich bin schon länger wach. Aber dieses Tier hat sich auch an meinen Sachen vergriffen. Sogar die Wasserkrüge hat es umgestoßen. Zum Glück sind sie nicht kaputt gegangen.
+Das Wieseljunge? Ich hab sie panisch davonflitzen sehen. Hat sie Ärger gemacht?
 
-* Ok.
--> Gefallen
+* Wohl einen Wasserkrug umgeworfen oder so. Weißt du in welche Richtung sie floh?
+-> Location
 
 == Where ==
-Alter Mann: Du meinst dieses Wiesel oder? Tut mir leid, ich hab es knapp verpasst. Aber ich weiß, dass es hier war. Hier ist es sonst so friedlich, da sticht so ein Krach schon heraus.
+Haustiere halten ist nicht einfach. Ich hatte selbst früher mal eine Eidechse namens Ganha. Ich durfte damals keine Haustiere halten also hab ich sie heimlich übers Fenster zu mir geholt, wenn Vater jagen und Mutter kochen oder Wäsche machen war. Ich vermiss es manchmal ein Haustier zu haben.
+* Warum holst du dir nicht wieder eines?
+-> Gespraech
 
-* Ok.
+== Location ==
+Nein. Aber ich vermute, dass sie sich in Richtung der Wälder aufmachte.
+-> Gefallen
+
+== Gespraech ==
+Ich bin nicht mehr der Fitteste. Ich glaube Arbeit mit einem Haustier würd mich zu sehr anstrengen und das möcht ich dem Tier nicht antun.
 -> Gefallen
 
 == Gefallen ==
-Alter Mann: Sag mal mein Junge, könntest du mir einen Gefallen tun?
+Aber sag mir Matthew, könntest du mir einen Gefallen tun während du nach dem Wieseljungen suchst?
 
 * Was gibt's denn?
-Alter Mann: Nun, meine Wasserkrüge sind jetzt alle leer aber ich brauche Wasser um meinen Garten zu bewässern. Ich bin aber schon so alt und gebrechlich, ich weiß nicht ob ich solche schweren Krüge alleine tragen kann. Würdest du zum Fluss nahe des Dorfes gehen und meine Krüge dort auffüllen?
+Kannst du mir einen Krug Wasser am naheliegenden Fluss auffüllen und zu mir bringen bei Gelegenheit? Das würde meine alten Knochen etwas schonen. Nimm dir einfach einen der Krüge, die dort stehen.
 -> Help
+
+* Tut mir leid. Ich hab noch was vor.
+-> END
 
 == Help ==
 #addQuest FillVase
+#completeQuest AlterMannTalk
 * Natürlich!
-Alter Mann: Ahh, vielen Dank mein Junge. Nehm dir einfach einen der Krüge die dort stehen und bring ihn mir dann mit Wasser voll zurück.
+Ahh, vielen Dank. Du bist eine große Hilfe.
+-> END
+
+== foundVase ==
+Dankeschön.
+* Kein Problem. Hab ich doch gern gemacht.
+#completeQuest FillVase
 -> END

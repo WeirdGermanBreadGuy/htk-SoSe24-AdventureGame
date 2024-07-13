@@ -58,30 +58,29 @@ public class StoryView : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
 
-        foreach (var quest in GameState.GetCompletableQuests())
-        {
-            var varName = "completable_" + quest.Quest.GetId().ToLower();
-            if (story.variablesState.Contains(varName))
-            {
-                story.variablesState[varName] = true;
-            }
-        }
-
         foreach (var quest in GameState.GetCompletedQuests())
         {
-            var varName = "completed_" + quest.Quest.GetId().ToLower();
+            var varName = "completed" + quest.Quest.GetId().ToLower();
             if (story.variablesState.Contains(varName))
             {
-                story.variablesState[varName] = true;
+                story.variablesState["completed" + quest.Quest.GetId().ToLower()] = true;
+            }
+        }
+        foreach (var quest in GameState.GetCompletableQuests())
+        {
+            var varName = "completed" + quest.Quest.GetId().ToLower();
+            if (story.variablesState.Contains(varName))
+            {
+                story.variablesState["completable" + quest.Quest.GetId().ToLower()] = true;
             }
         }
 
         foreach (var quest in GameState.GetActiveQuests())
         {
-            var varName = "active_" + quest.Quest.GetId().ToLower();
+            var varName = "completed" + quest.Quest.GetId().ToLower();
             if (story.variablesState.Contains(varName))
             {
-                story.variablesState[varName] = true;
+                story.variablesState["active" + quest.Quest.GetId().ToLower()] = true;
             }
         }
 

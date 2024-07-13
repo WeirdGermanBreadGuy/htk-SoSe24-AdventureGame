@@ -1,18 +1,23 @@
+using StarterAssets;
 using UnityEngine;
-using UnityEngine.InputSystem.LowLevel;
-
+using UnityEngine.Events;
 
 public class Collectable : MonoBehaviour, IInteractable
 {
-   public ItemType type;
-   public uint amount = 1;
+    public ItemType type;
+    public uint amount = 1;
 
-   public void Interact()
-   {
-      Debug.Log("Collected" + name);
+    [SerializeField]
+    private UnityEvent _onCollect;
 
-      GameState.AddItem(type, amount);
+    [SerializeField] private string _playerAnimationTrigger = "Pickup";
 
-
-   }
+    public void Interact()
+    {
+        Debug.Log("Collected" + name);
+        GameState.AddItem(type, amount);
+        FindObjectOfType<ThirdPersonController>().GetComponent<Animator>().SetTrigger(_playerAnimationTrigger);
+        _onCollect?.Invoke();
+        Destroy(gameObject);
+    }
 }
