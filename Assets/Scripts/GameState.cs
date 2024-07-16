@@ -97,7 +97,20 @@ public class GameState : MonoBehaviour
             Instantiate(uiPrefab, root);
         }
         Debug.Log("Quest " + questId + " completed");
+
+        var lockedGameObjects = FindObjectsOfType<LockedByQuest>(true);
+        foreach (var lockedObject in lockedGameObjects)
+        {
+            if (lockedObject.Quest.GetId() == questId)
+            {
+                lockedObject.gameObject.SetActive(true);
+                Destroy(lockedObject);
+            }
+        }
     }
+    
+    
+    
     public static void MarkQuestCompletable(IQuest quest)
     {
         var instance = FindObjectOfType<GameState>();
