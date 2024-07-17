@@ -6,6 +6,14 @@ VAR completable_AlterMannTalk = false
 VAR completed_AlterMannTalk = false
 VAR active_AlterMannTalk = false
 
+{
+- active_FillVase == true:
+-> Fertig
+- active_FillVase == false:
+    -> choices
+}
+
+== Fertig ==
 Und bist du schon fertig?
 * {completable_FillVase} -> foundVase 
 * {not completed_AlterMannTalk} -> choices
@@ -22,7 +30,7 @@ Hey Matthew, du siehst so nachdenklich aus.
 == What ==
 Das Wieseljunge? Ich hab sie panisch davonflitzen sehen. Hat sie Ärger gemacht?
 
-* Wohl einen Wasserkrug umgeworfen oder so. Weißt du in welche Richtung sie floh?
+* Ja. Weißt du in welche Richtung sie floh?
 -> Location
 
 == Where ==

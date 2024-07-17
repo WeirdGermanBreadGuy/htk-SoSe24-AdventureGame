@@ -60,15 +60,15 @@ public class StoryView : MonoBehaviour
 
         foreach (var quest in GameState.GetCompletedQuests())
         {
-            var varName = "completed" + quest.Quest.GetId().ToLower();
+            var varName = "completable" + quest.Quest.GetId().ToLower();
             if (story.variablesState.Contains(varName))
             {
-                story.variablesState["completed" + quest.Quest.GetId().ToLower()] = true;
+                story.variablesState["completable" + quest.Quest.GetId().ToLower()] = true;
             }
         }
         foreach (var quest in GameState.GetCompletableQuests())
         {
-            var varName = "completed" + quest.Quest.GetId().ToLower();
+            var varName = "completable" + quest.Quest.GetId().ToLower();
             if (story.variablesState.Contains(varName))
             {
                 story.variablesState["completable" + quest.Quest.GetId().ToLower()] = true;
@@ -77,7 +77,7 @@ public class StoryView : MonoBehaviour
 
         foreach (var quest in GameState.GetActiveQuests())
         {
-            var varName = "completed" + quest.Quest.GetId().ToLower();
+            var varName = "completable" + quest.Quest.GetId().ToLower();
             if (story.variablesState.Contains(varName))
             {
                 story.variablesState["active" + quest.Quest.GetId().ToLower()] = true;
