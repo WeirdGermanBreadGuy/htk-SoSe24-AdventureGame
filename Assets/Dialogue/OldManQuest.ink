@@ -7,10 +7,10 @@ VAR completed_AlterMannTalk = false
 VAR active_AlterMannTalk = false
 
 {
-- active_FillVase == true:
--> Fertig
-- active_FillVase == false:
-    -> choices
+    - active_FillVase == true:
+        -> Fertig
+    - active_FillVase == false:
+        -> choices
 }
 
 == Fertig ==
