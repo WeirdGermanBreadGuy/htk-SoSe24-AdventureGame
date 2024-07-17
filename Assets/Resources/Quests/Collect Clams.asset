@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f24c33473a3c18d4b83bb22889656ca1, type: 3}
   m_Name: Collect Clams
   m_EditorClassIdentifier: 
-  displayName: 
-  requirements: []
+  displayName: Collect Clams
+  requirements:
+  - type: {fileID: 11400000, guid: 432a6b2c333196949b443becf2be7d42, type: 2}
+    amount: 5
   isHidden: 0
   completeScreenPrefab: {fileID: 0}
