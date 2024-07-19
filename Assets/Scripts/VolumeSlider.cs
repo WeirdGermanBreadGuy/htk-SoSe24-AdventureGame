@@ -1,3 +1,5 @@
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,8 +14,9 @@ public class VolumeSlider : MonoBehaviour
     }
 
     private void OnEnable()
-    {
-        var vca = FMODUnity.RuntimeManager.GetVCA(vcaPath);
+    { 
+        VCA vca = RuntimeManager.GetVCA(vcaPath);
+       // var vca = FMODUnity.RuntimeManager.GetVCA(vcaPath); 
         vca.getVolume(out var volume);
         GetComponent<Slider>().value = volume;
     }
@@ -25,7 +28,7 @@ public class VolumeSlider : MonoBehaviour
 
     private void SetVolume(float volume)
     {
-        var vca = FMODUnity.RuntimeManager.GetVCA(vcaPath);
-        vca.setVolume((volume));
+        VCA vca = RuntimeManager.GetVCA(vcaPath);
+        vca.setVolume(volume);
     }
 }

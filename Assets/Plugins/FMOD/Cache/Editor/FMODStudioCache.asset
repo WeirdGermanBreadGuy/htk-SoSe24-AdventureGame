@@ -24,46 +24,6 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
---- !u!114 &-7267968285480459744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: FMod/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638564922973853611
-  FileSizes:
-  - Name: Desktop
-    Value: 1036
-  Exists: 1
---- !u!114 &-6813591157919834651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: FMod/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638564922973853611
-  FileSizes:
-  - Name: Desktop
-    Value: 1418
-  Exists: 1
 --- !u!114 &-6385093991231811542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,14 +43,14 @@ MonoBehaviour:
     Data3: -1704231265
     Data4: 1518040311
   Banks:
-  - {fileID: 378885960362504107}
+  - {fileID: 5941382508865157177}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 6500
 --- !u!114 &-5722899707163430214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,7 +70,7 @@ MonoBehaviour:
     Data3: 2034982532
     Data4: -498064018
   Banks:
-  - {fileID: -2535804266417087497}
+  - {fileID: 9087837651386451210}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -118,7 +78,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 500
---- !u!114 &-2535804266417087497
+--- !u!114 &-4049101364053117482
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,15 +88,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/SFX.bank
+  m_Name: bank:/Master.strings.bank
   m_EditorClassIdentifier: 
-  Path: FMod/Build/Desktop/SFX.bank
-  Name: SFX
-  StudioPath: bank:/SFX
-  lastModified: 638564922973873601
+  Path: L:/Mave Dateien/HTK/Audio/GameAudio_Maverick_Buenger/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638564905340000000
   FileSizes:
   - Name: Desktop
-    Value: 3252
+    Value: 1866
   Exists: 1
 --- !u!114 &-2056553926856464787
 MonoBehaviour:
@@ -186,6 +146,26 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-772382639624907210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Atmos.bank
+  m_EditorClassIdentifier: 
+  Path: L:/Mave Dateien/HTK/Audio/GameAudio_Maverick_Buenger/Build/Desktop/Atmos.bank
+  Name: Atmos
+  StudioPath: bank:/Atmos
+  lastModified: 638564902200000000
+  FileSizes:
+  - Name: Desktop
+    Value: 2090368
+  Exists: 1
 --- !u!114 &-390860241131161147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,8 +185,8 @@ MonoBehaviour:
     Data3: -1381556317
     Data4: 808342068
   Banks:
-  - {fileID: 895436083488934775}
-  IsStream: 0
+  - {fileID: -772382639624907210}
+  IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
@@ -217,7 +197,7 @@ MonoBehaviour:
   - {fileID: -8509688196246916077}
   MinDistance: 1
   MaxDistance: 20
-  Length: 56000
+  Length: 60147
 --- !u!114 &-302467132917796277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,11 +237,11 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -6813591157919834651}
-  - {fileID: 895436083488934775}
-  - {fileID: -7267968285480459744}
-  - {fileID: -2535804266417087497}
-  - {fileID: 378885960362504107}
+  - {fileID: -4049101364053117482}
+  - {fileID: -772382639624907210}
+  - {fileID: 4297385941597721826}
+  - {fileID: 9087837651386451210}
+  - {fileID: 5941382508865157177}
   EditorEvents:
   - {fileID: 2841100949577927090}
   - {fileID: 3349964164775744222}
@@ -270,12 +250,13 @@ MonoBehaviour:
   - {fileID: -6385093991231811542}
   - {fileID: 1742104445003463158}
   - {fileID: -390860241131161147}
+  - {fileID: 1845311437774202837}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -7267968285480459744}
+  - {fileID: 4297385941597721826}
   StringsBanks:
-  - {fileID: -6813591157919834651}
-  cacheTime: 638564922973873601
+  - {fileID: -4049101364053117482}
+  cacheTime: 638564905340000000
   cacheVersion: 131618
 --- !u!114 &316834904337663113
 MonoBehaviour:
@@ -296,54 +277,14 @@ MonoBehaviour:
     Data3: -2128424781
     Data4: -178966427
   Banks:
-  - {fileID: 378885960362504107}
+  - {fileID: 5941382508865157177}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
---- !u!114 &378885960362504107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/UI.bank
-  m_EditorClassIdentifier: 
-  Path: FMod/Build/Desktop/UI.bank
-  Name: UI
-  StudioPath: bank:/UI
-  lastModified: 638564922973873601
-  FileSizes:
-  - Name: Desktop
-    Value: 3328
-  Exists: 1
---- !u!114 &895436083488934775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Atmos.bank
-  m_EditorClassIdentifier: 
-  Path: FMod/Build/Desktop/Atmos.bank
-  Name: Atmos
-  StudioPath: bank:/Atmos
-  lastModified: 638564922973843619
-  FileSizes:
-  - Name: Desktop
-    Value: 11848
-  Exists: 1
+  Length: 6500
 --- !u!114 &1742104445003463158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,13 +304,40 @@ MonoBehaviour:
     Data3: 1957883296
     Data4: 2146169174
   Banks:
-  - {fileID: 378885960362504107}
+  - {fileID: 5941382508865157177}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+  Length: 6500
+--- !u!114 &1845311437774202837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/Reverb Cave
+  m_EditorClassIdentifier: 
+  Path: snapshot:/Reverb Cave
+  Guid:
+    Data1: 697867162
+    Data2: 1140188144
+    Data3: -1587399766
+    Data4: -1783279204
+  Banks:
+  - {fileID: 4297385941597721826}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
   Length: 0
 --- !u!114 &2841100949577927090
 MonoBehaviour:
@@ -390,7 +358,7 @@ MonoBehaviour:
     Data3: -1102900554
     Data4: -1129928789
   Banks:
-  - {fileID: -2535804266417087497}
+  - {fileID: 9087837651386451210}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -417,14 +385,14 @@ MonoBehaviour:
     Data3: -557164867
     Data4: 2104788665
   Banks:
-  - {fileID: -2535804266417087497}
+  - {fileID: 9087837651386451210}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 1000
 --- !u!114 &3904212657485197609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,4 +416,64 @@ MonoBehaviour:
   Type: 0
   IsGlobal: 0
   Labels: []
+  Exists: 1
+--- !u!114 &4297385941597721826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: L:/Mave Dateien/HTK/Audio/GameAudio_Maverick_Buenger/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638564905340000000
+  FileSizes:
+  - Name: Desktop
+    Value: 3730
+  Exists: 1
+--- !u!114 &5941382508865157177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/UI.bank
+  m_EditorClassIdentifier: 
+  Path: L:/Mave Dateien/HTK/Audio/GameAudio_Maverick_Buenger/Build/Desktop/UI.bank
+  Name: UI
+  StudioPath: bank:/UI
+  lastModified: 638551905940000000
+  FileSizes:
+  - Name: Desktop
+    Value: 13216
+  Exists: 1
+--- !u!114 &9087837651386451210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX.bank
+  m_EditorClassIdentifier: 
+  Path: L:/Mave Dateien/HTK/Audio/GameAudio_Maverick_Buenger/Build/Desktop/SFX.bank
+  Name: SFX
+  StudioPath: bank:/SFX
+  lastModified: 638551905940000000
+  FileSizes:
+  - Name: Desktop
+    Value: 80736
   Exists: 1
