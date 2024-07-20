@@ -4,6 +4,6 @@ Mamaaa, Ich will verstecken spielen! Dieses lustige Wiesel war wieder hier. Ich 
 -> Mutter
 
 == Mutter ==
-#speaker Frau
+#speaker Mutter
 Halt dich bloß von diesem Ding fern, mein Kleiner!
 -> DONE
