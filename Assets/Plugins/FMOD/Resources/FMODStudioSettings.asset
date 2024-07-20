@@ -609,8 +609,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: L:/Mave Dateien/HTK/Audio/GameAudio_Maverick_Buenger/GameAudio_Maverick_Buenger.fspro
-  sourceBankPath: L:/Mave Dateien/HTK/Audio/GameAudio_Maverick_Buenger/Build
+  sourceProjectPath: ../OneDrive/Desktop/FMOD Project Backup/GameAudio_Maverick_Buenger/GameAudio_Maverick_Buenger.fspro
+  sourceBankPath: ../OneDrive/Desktop/FMOD Project Backup/GameAudio_Maverick_Buenger/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
