@@ -33,33 +33,46 @@ Das Wieseljunge? Ich hab sie panisch davonflitzen sehen. Hat sie Ärger gemacht?
 * Ja. Weißt du in welche Richtung sie floh?
 -> Location
 
+== Location ==
+Nein. Aber ich vermute, dass sie sich in Richtung der Wälder aufmachte.
+* Dann sollte ich dort nachschauen.
+-> Gefallen
+
 == Where ==
-Haustiere halten ist nicht einfach. Ich hatte selbst früher mal eine Eidechse namens Ganha. Ich durfte damals keine Haustiere halten also hab ich sie heimlich übers Fenster zu mir geholt, wenn Vater jagen und Mutter kochen oder Wäsche machen war. Ich vermiss es manchmal ein Haustier zu haben.
+Haustiere halten ist nicht einfach. Ich hatte selbst früher mal eine Eidechse namens Ganha. 
+* Continue
+-> Continue
+
+== Continue ==
+Ich durfte damals keine Haustiere halten also hab ich sie heimlich übers Fenster zu mir geholt, wenn Vater jagen und Mutter kochen oder Wäsche machen war. Ich vermiss es manchmal ein Haustier zu haben.
 * Warum holst du dir nicht wieder eines?
 -> Gespraech
 
-== Location ==
-Nein. Aber ich vermute, dass sie sich in Richtung der Wälder aufmachte.
--> Gefallen
-
 == Gespraech ==
 Ich bin nicht mehr der Fitteste. Ich glaube Arbeit mit einem Haustier würd mich zu sehr anstrengen und das möcht ich dem Tier nicht antun.
+* Tut mir leid das zu hören.
 -> Gefallen
+
 
 == Gefallen ==
 Aber sag mir Matthew, könntest du mir einen Gefallen tun während du nach dem Wieseljungen suchst?
-
 * Was gibt's denn?
-Kannst du mir einen Krug Wasser am naheliegenden Fluss auffüllen und zu mir bringen bei Gelegenheit? Das würde meine alten Knochen etwas schonen. Nimm dir einfach einen der Krüge, die dort stehen.
--> Help
-
+-> Krug
 * Tut mir leid. Ich hab noch was vor.
--> END
+-> BisSpaeter
+
+== BisSpaeter ==
+Also gut. Dann bis später, Matthew.
+->END
+
+== Krug ==
+Kannst du mir einen Krug Wasser am naheliegenden Fluss auffüllen und zu mir bringen bei Gelegenheit? Das würde meine alten Knochen etwas schonen. Nimm dir einfach einen der Krüge, die dort stehen.
+* Natürlich!
+-> Help
 
 == Help ==
 #addQuest FillVase
 #completeQuest AlterMannTalk
-* Natürlich!
 Ahh, vielen Dank. Du bist eine große Hilfe.
 -> END
 
