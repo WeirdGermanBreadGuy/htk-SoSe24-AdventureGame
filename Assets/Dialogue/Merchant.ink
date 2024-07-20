@@ -10,6 +10,9 @@ Ich habe nur die feinste Ware hier. Aber das brauch ich dir ja nicht zu erzähle
 Ich würde an deiner Stelle mal in den Wäldern schauen. Würdest du mir einen Gefallen tun, während du nach ihr suchst?
 * Sicher, worum gehts?
 -> Antwort
+* Tut mir leid, ich habs etwas eilig heute.
+-> Okay
+
 
 == Dorf ==
 Nein Nein, ich liebe unser Dorf. Es ist nur etwas eintönig hier. Dürfte ich dich vielleicht um etwas bitten?
