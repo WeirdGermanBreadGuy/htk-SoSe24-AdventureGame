@@ -607,10 +607,10 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
   switchSettingsMigration: 1
-  HasSourceProject: 1
-  HasPlatforms: 1
+  HasSourceProject: 0
+  HasPlatforms: 0
   sourceProjectPath: ../OneDrive/Desktop/FMOD Project Backup/GameAudio_Maverick_Buenger/GameAudio_Maverick_Buenger.fspro
-  sourceBankPath: ../OneDrive/Desktop/FMOD Project Backup/GameAudio_Maverick_Buenger/Build
+  sourceBankPath: Assets/Audio/FMOD Sounds
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -635,6 +635,7 @@ MonoBehaviour:
   - Master
   Banks:
   - Atmos
+  - Music
   - SFX
   - UI
   BanksToLoad: []
@@ -648,7 +649,7 @@ MonoBehaviour:
   EnableErrorCallback: 0
   SharedLibraryUpdateStage: 0
   SharedLibraryTimeSinceStart: 0
-  CurrentVersion: 131618
+  CurrentVersion: 131619
   HideSetupWizard: 1
   LastEventReferenceScanVersion: 131618
   Platforms:

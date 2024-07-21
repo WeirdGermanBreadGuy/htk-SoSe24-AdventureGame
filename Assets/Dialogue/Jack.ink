@@ -33,4 +33,6 @@ Also ich als erstklassiger Schatzsucher kann sagen, das hier ist von höchstem W
 
 == Continue ==
 Sollen wir nochmal in die Wälder gehen? Vielleicht finden wir da nicht nur noch mehr Schätze sondern auch Raha. Was meinst du, Kumpel?
+* Continue
+#endscreen
 ->DONE

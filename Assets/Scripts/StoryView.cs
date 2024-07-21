@@ -8,6 +8,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class StoryView : MonoBehaviour
@@ -17,6 +18,7 @@ public class StoryView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI speakerName;
     [SerializeField] private Button buttonPrefab;
     [SerializeField] private GameObject normalHudGroup;
+    [SerializeField] private int end;
 
     [SerializeField] private List<SpeakerConfig> speakerConfigs;
 
@@ -158,6 +160,11 @@ public class StoryView : MonoBehaviour
                 var questName = currentTag.Split(' ')[1];
                 GameState.CompleteQuest(questName);
                 FindObjectOfType<QuestLogView>(true).ShowActiveQuests();
+            }
+
+            if (currentTag.Contains("endscreen"))
+            {
+                SceneManager.LoadScene(end);
             }
         }
     }
